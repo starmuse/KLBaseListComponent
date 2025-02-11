@@ -1,0 +1,28 @@
+PODS:
+  - LYEmptyView (1.3.1)
+  - Masonry (1.1.0)
+  - MJRefresh (3.7.9)
+  - ZXNavigationBar (1.4.1)
+
+DEPENDENCIES:
+  - LYEmptyView
+  - Masonry
+  - MJRefresh
+  - ZXNavigationBar
+
+SPEC REPOS:
+  trunk:
+    - LYEmptyView
+    - Masonry
+    - MJRefresh
+    - ZXNavigationBar
+
+SPEC CHECKSUMS:
+  LYEmptyView: b6d418cfa38b78df0cf243f9a9c25ccbdc399922
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
+  ZXNavigationBar: a8ceb13fe37f9ca894cf6ae22d805cbdbb9ad6b1
+
+PODFILE CHECKSUM: 2d6358d6b5798e08c721912598cc05b8f9680c53
+
+COCOAPODS: 1.16.2

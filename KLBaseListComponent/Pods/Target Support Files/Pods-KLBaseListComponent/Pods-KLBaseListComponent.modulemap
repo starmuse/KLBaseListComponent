@@ -1,0 +1,6 @@
+framework module Pods_KLBaseListComponent {
+  umbrella header "Pods-KLBaseListComponent-umbrella.h"
+
+  export *
+  module * { export * }
+}
