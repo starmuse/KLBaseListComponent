@@ -24,12 +24,6 @@
 }
 
 
-
-
-
-
-
-
 - (KLListViewSectionModel *)firstSectionModel {
     if (self.sections.count == 0) {
         return [KLListViewSectionModel new];
@@ -44,5 +38,36 @@
     
     return self.sections.firstObject.cells;
 }
+
+@end
+
+
+
+@implementation KLListViewSectionModel
+
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {
+    return @{
+        @"cells" : KLListViewCellModel.class
+    };
+}
+
+- (NSMutableArray<KLListViewCellModel *> *)cells {
+    if (_cells == nil) {
+        _cells = @[].mutableCopy;
+    }
+    return _cells;
+}
+
+@end
+
+@implementation KLListViewSectionInfoModel
+
+@end
+
+@implementation KLListViewSectionHeaderFooterModel
+
+@end
+
+@implementation KLListViewCellModel
 
 @end

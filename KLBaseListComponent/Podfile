@@ -12,3 +12,45 @@ target 'KLBaseListComponent' do
   pod 'LYEmptyView'
 
 end
+
+
+
+
+# pods minimum deployment target.
+# clang: error: SDK does not contain 'libarclite' at the path
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "13.0"
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+    end
+  end
+end
+
+
+#xcode16上架,提示包含bitcode处理.
+#在podfile新增红框中的命令,重新pod install.亲测可用.
+
+# start: bitcode strip
+bitcode_strip_path = `xcrun --find bitcode_strip`.chomp
+
+def strip_bitcode_from_framework(bitcode_strip_path, framework_path, framework_name)
+  command = "#{bitcode_strip_path} #{framework_path} -r -o #{framework_path}"
+  puts "Stripping bitcode from #{framework_name}: #{command}"
+  system(command)
+end
+
+# scan all frameworks in Pods directory
+Dir.glob("Pods/**/*.{framework,xcframework}") do |framework|
+  framework_name = File.basename(framework, File.extname(framework)) # 获取框架名称
+  puts "Found framework: #{framework_name}"
+
+# scan all binary files in framework matching the framework name
+Dir.glob("#{framework}/**/#{framework_name}") do |binary_file|
+    if File.file?(binary_file)
+      puts "Found matching binary: #{binary_file}"
+      strip_bitcode_from_framework(bitcode_strip_path, binary_file, framework_name)
+    end
+  end
+end
+# end: bitcode strip

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KLTools : NSObject
 
-+ (UIWindow *)kl_KeyWindow;
++ (UIWindow *)kl_keyWindow;
 + (CGFloat)kl_safeBottomHeight;
 + (CGFloat)kl_safeTopHeight;
 

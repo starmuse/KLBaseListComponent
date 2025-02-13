@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                     for list.
                    DESC
 
-  spec.homepage     = "https://github.com/starmuse/KLBaseListComponent.git"
+  spec.homepage     = "https://github.com/starmuse/KLBaseListComponent"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -52,7 +52,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "keith" => "100" }
+  spec.author             = "keith"
   # Or just: spec.author    = "keith"
   # spec.authors            = { "keith" => "101" }
   # spec.social_media_url   = "https://twitter.com/keith"
@@ -92,7 +92,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "KLBaseListComponent/KLBaseListComponent/Classes", "KLBaseListComponent/KLBaseListComponent/Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -110,6 +110,7 @@ Pod::Spec.new do |spec|
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
+  spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
